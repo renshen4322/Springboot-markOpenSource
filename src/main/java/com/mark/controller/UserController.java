@@ -37,7 +37,7 @@ public class UserController {
         if(StringUtils.isEmpty(dto.getUsername())|| StringUtils.isEmpty(dto.getPassword())){
             throw new BaseBusinessException("请输入用户名和密码");
         }
-        if(iUserInfoService.checkUser(dto)){
+        if(!iUserInfoService.checkUser(dto)){
             return ResultVo.fail("账户不存在");
         }
         return ResultVo.ok();

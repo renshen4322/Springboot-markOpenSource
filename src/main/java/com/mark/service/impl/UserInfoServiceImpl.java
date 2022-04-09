@@ -7,6 +7,7 @@ import com.mark.entity.UserInfo;
 import com.mark.mapper.UserInfoMapper;
 import com.mark.service.IUserInfoService;
 import com.mark.model.CheckUserDto;
+import com.mark.utils.ExtBeansUtils;
 import com.mark.utils.ResultVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,14 +34,15 @@ public class UserInfoServiceImpl implements IUserInfoService {
     /**
      * 检查用户数量
      *
-     * @param userEntity 用户实体
+     * @param dto 用户实体
      * @return {@link Boolean}
      */
     @Override
-    public Boolean checkUser(CheckUserDto userEntity) {
+    public Boolean checkUser(CheckUserDto dto) {
         LambdaQueryWrapper<UserInfo> lambdaQueryWrapper = Wrappers.lambdaQuery();
-        lambdaQueryWrapper.eq(UserInfo::getUsername,userEntity.getUsername())
-                .eq(UserInfo::getPassword,userEntity.getPassword());
+        UserInfo info = ExtBeansUtils.map(dto,UserInfo.class);
+        lambdaQueryWrapper.eq(UserInfo::getUsername,info.getUsername())
+                .eq(UserInfo::getPassword,info.getPassword());
         Integer count = userDao.selectCount(lambdaQueryWrapper);
         return count > 0;
     }
