@@ -4,9 +4,13 @@ logging:
             example: debug
         root: info
 mybatis:
+    configuration:
+        mapUnderscoreToCamelCase: true
+        cache-enabled: true
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     mapper-locations: classpath:mapper/*.xml
 server:
-    port: 8082
+    port: 8083
     servlet:
         context-path: /myboot
 spring:
@@ -36,3 +40,9 @@ spring:
             primary: master #设置默认的数据源或者数据源组,默认值即为master
             strict: true
         type: com.alibaba.druid.pool.DruidDataSource
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params-count: countSq
