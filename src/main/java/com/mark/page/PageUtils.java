@@ -2,7 +2,7 @@ package com.mark.page;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.xingchao.common.core.utils.ExtBeansUtils;
+import com.mark.utils.ExtBeansUtils;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
