@@ -71,11 +71,11 @@
             <artifactId>pagehelper</artifactId>
             <version>5.2.0</version>
         </dependency>
-        <dependency>
+       <!-- <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.4.1</version>
-        </dependency>
+        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
         <dependency>
