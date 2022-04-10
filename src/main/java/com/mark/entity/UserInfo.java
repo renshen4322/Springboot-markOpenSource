@@ -49,11 +49,9 @@ public class UserInfo implements Serializable {
 
     private String createBy;
 
-
     private LocalDateTime createTime;
 
     private String updateBy;
-
 
     private LocalDateTime updateTime;
 

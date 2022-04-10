@@ -2,6 +2,8 @@ package com.mark.service;
 
 import com.mark.entity.UserInfo;
 import com.mark.model.CheckUserDto;
+import com.mark.model.RegisterDto;
+import com.mark.model.UpdateUserDto;
 import com.mark.utils.ResultVo;
 
 /**
@@ -25,10 +27,10 @@ public interface IUserInfoService {
     /**
      * 根据用户名更新用户密码
      *
-     * @param userEntity the user entity
+     * @param dto the user entity
      * @return result vo
      */
-    ResultVo<Boolean> updateAccountInfo(UserInfo userEntity);
+    ResultVo<Boolean> updateAccountInfo(UpdateUserDto dto);
 
 
     UserInfo getUserInfoByName(String userName);
@@ -37,10 +39,10 @@ public interface IUserInfoService {
     /**
      * 用户注册
      *
-     * @param userEntity the user entity
+     * @param dto the user entity
      * @return result vo
      */
-    ResultVo<?> register(UserInfo userEntity);
+    ResultVo<?> register(RegisterDto dto);
 
     /**
      * 删除用户信息

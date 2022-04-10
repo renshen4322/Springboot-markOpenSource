@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.mark.entity.UserInfo;
 import com.mark.mapper.UserInfoMapper;
+import com.mark.model.RegisterDto;
+import com.mark.model.UpdateUserDto;
 import com.mark.service.IUserInfoService;
 import com.mark.model.CheckUserDto;
 import com.mark.utils.ExtBeansUtils;
@@ -31,6 +33,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
 
     @Autowired
     private UserInfoMapper userDao;
+
     /**
      * 检查用户数量
      *
@@ -40,9 +43,9 @@ public class UserInfoServiceImpl implements IUserInfoService {
     @Override
     public Boolean checkUser(CheckUserDto dto) {
         LambdaQueryWrapper<UserInfo> lambdaQueryWrapper = Wrappers.lambdaQuery();
-        UserInfo info = ExtBeansUtils.map(dto,UserInfo.class);
-        lambdaQueryWrapper.eq(UserInfo::getUsername,info.getUsername())
-                .eq(UserInfo::getPassword,info.getPassword());
+        UserInfo info = ExtBeansUtils.map(dto, UserInfo.class);
+        lambdaQueryWrapper.eq(UserInfo::getUsername, info.getUsername())
+                .eq(UserInfo::getPassword, info.getPassword());
         Integer count = userDao.selectCount(lambdaQueryWrapper);
         return count > 0;
     }
@@ -56,11 +59,9 @@ public class UserInfoServiceImpl implements IUserInfoService {
     @Override
     public UserInfo getUserInfoByName(String userName) {
         QueryWrapper<UserInfo> userEntityQueryWrapper = new QueryWrapper<>();
-        userEntityQueryWrapper.eq("username",userName);
+        userEntityQueryWrapper.eq("username", userName);
         return userDao.selectOne(userEntityQueryWrapper);
     }
-
-
 
 
     /**
@@ -70,12 +71,13 @@ public class UserInfoServiceImpl implements IUserInfoService {
      * @return {@link ResultVo}<{@link Boolean}>
      */
     @Override
-    public ResultVo<Boolean> updateAccountInfo(UserInfo userEntity) {
+    public ResultVo<Boolean> updateAccountInfo(UpdateUserDto dto) {
         try {
-            userDao.updateById(userEntity);
+            UserInfo info = ExtBeansUtils.map(dto,UserInfo.class);
+            userDao.updateById(info);
         } catch (Exception e) {
-            logger.error("更新失败"+e.getMessage());
-            return ResultVo.fail(400,"更新失败，请联系管理员");
+            logger.error("更新失败" + e.getMessage());
+            return ResultVo.fail(400, "更新失败，请联系管理员");
         }
         return ResultVo.ok();
     }
@@ -83,16 +85,17 @@ public class UserInfoServiceImpl implements IUserInfoService {
     /**
      * 注册
      *
-     * @param userEntity 用户实体
+     * @param dto 用户实体
      * @return {@link ResultVo}<{@link ?}>
      */
     @Override
-    public ResultVo<?> register(UserInfo userEntity) {
+    public ResultVo<?> register(RegisterDto dto) {
         try {
-            userDao.insert(userEntity);
+            UserInfo info = ExtBeansUtils.map(dto, UserInfo.class);
+            userDao.insert(info);
         } catch (Exception e) {
-            logger.error("插入失败"+e.getMessage());
-            return ResultVo.fail(400,"注册失败，请联系管理员");
+            logger.error("插入失败" + e.getMessage());
+            return ResultVo.fail(400, "注册失败，请联系管理员");
         }
         return ResultVo.ok();
     }
@@ -108,7 +111,6 @@ public class UserInfoServiceImpl implements IUserInfoService {
         userDao.deleteBatchIds(Arrays.asList(ids.split(",")));
         return ResultVo.ok();
     }
-
 
 
 }

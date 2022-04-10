@@ -6,20 +6,18 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * ClassName:checkUserDto
- * Package:com.mark.springbootmarkopensource.model
+ * ClassName:RegisterDto
+ * Package:com.mark.model
  * Description:
  *
- * @Date:2022/4/9 13:42
+ * @Date:2022/4/10 11:28
  * @Author: mark
  */
 @Data
-public class CheckUserDto implements Serializable {
+public class RegisterDto implements Serializable {
+    private static final long serialVersionUID = -5383929266871696962L;
 
-    private static final long serialVersionUID = 7221937407422966378L;
-    /**
-     * 用户名
-     */
+
 
     private String username;
 
@@ -27,4 +25,5 @@ public class CheckUserDto implements Serializable {
      * 用户密码
      */
     private String password;
+
 }
