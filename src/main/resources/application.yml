@@ -29,13 +29,13 @@ spring:
             datasource:
                 master:
                     driver-class-name: com.mysql.cj.jdbc.Driver
-                    password: 123456
-                    url: jdbc:mysql://localhost:3306/mybatisplus?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+                    password: gu425006
+                    url: jdbc:mysql://192.168.161.131:3306/mybatis_plus?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
                     username: root
                 slave1:
                     driver-class-name: com.mysql.cj.jdbc.Driver
-                    password: 123456
-                    url: jdbc:mysql://localhost:3306/mybatisplus2?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+                    password: gu425006
+                    url: jdbc:mysql://192.168.161.131:3306/mybatis_plus?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
                     username: root
             primary: master #设置默认的数据源或者数据源组,默认值即为master
             strict: true

@@ -31,7 +31,7 @@ public class CacheManagerImpl implements ICacheManager {
     /**
      * 存入缓存
      * @param key
-     * @param cache
+     * @param
      */
     @Override
     public void putCache(String key, Object datas, long timeOut) {
@@ -67,7 +67,7 @@ public class CacheManagerImpl implements ICacheManager {
 
     /**
      * 获取所有缓存
-     * @param key
+     * @param
      * @return
      */
     @Override
