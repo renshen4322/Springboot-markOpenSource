@@ -29,7 +29,7 @@ public class Splistrlist分段数据 {
         //List<String> list = Arrays.asList(str.split(","));
 
         List<String> list = new ArrayList<String>();
-        for(int i=1;i<=1000000;i++){
+        for(int i=1;i<=100000;i++){
             list.add("fff"+i);
         }
        /* list.add("aaa");//index_0
@@ -39,7 +39,7 @@ public class Splistrlist分段数据 {
         list.add("eee");//index_4
         list.add("fff");//index_5
         list.add("ggg");//index_6 */
-        int flag = 50;//每次取的数据
+        int flag = 500;//每次取的数据
         int size = list.size();
         int temp = size / flag + 1;
         boolean special = size % flag == 0;
@@ -47,7 +47,7 @@ public class Splistrlist分段数据 {
         for (int i = 0; i < temp; i++) {
             if (i == temp - 1) {
                 if (special) {
-                    break;
+                    continue;
                 }
                 cutList = list.subList(flag * i, size);
             } else {

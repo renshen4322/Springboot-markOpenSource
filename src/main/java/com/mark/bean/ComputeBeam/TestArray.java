@@ -12,8 +12,10 @@ public class TestArray {
         //getResult(10);
 
 
+        String str = null;
+        System.out.println(str.length());
 
-        extracted();
+       // extracted();
     }
 
     /**
