@@ -168,7 +168,7 @@ public class CommonStringUtil {
      * @param id
      * @return
      */
-    private static String onlySixCode(long id) {
+    public static String onlySixCode(long id) {
         String str;
         char[] buf = new char[32];
         int charPos = 32;
@@ -300,5 +300,9 @@ public class CommonStringUtil {
         return sdf.format(ca.getTime());
     }
 
+    public static void main(String[] args) {
+        String code = onlySixCode(1951364703847807L-999999999999999L);
+        System.out.println(code);
+    }
 
 }
