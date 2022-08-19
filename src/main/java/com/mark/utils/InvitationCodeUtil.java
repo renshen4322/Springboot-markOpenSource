@@ -142,7 +142,7 @@ private static final char[] CHARS = new char[] {'M', 'w', 'W', 'J', 's', 'c', 'B
 
         public static void main(String[] args) {
            // for (int i = 1; i < 1000; i++) {
-                String s = gen(Long.valueOf(1951364703847811L));
+                String s = gen(1951364703847811L);
                 System.out.println(s + "-----" + decode(s));
            // }
         }
