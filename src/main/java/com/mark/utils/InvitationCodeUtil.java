@@ -19,9 +19,9 @@ private static final char[] CHARS = new char[] {'M', 'w', 'W', 'J', 's', 'c', 'B
             'E', 'G', 'Y', '5', '3', 'k', 'z', '8', '4', 'm'};
             /*{'f', 'l', 'g', 'w', '5', 'x', 'c', '3',
                 '9', 'z', 'm', '6', '7', 'y', 'r', 't', '2', 'h', 's', '8', 'd', 'v', 'e', 'j', '4', 'k',
-                'q', 'p', 'u', 'a', 'n', 'b'};*/
+                'q', 'p', 'u', 'a', 'n', 'b'};*/ //32
 
-        private final static int CHARS_LENGTH = 32;
+        private final static int CHARS_LENGTH = 46;
         /**
          * 邀请码长度
          */
