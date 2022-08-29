@@ -1,6 +1,7 @@
 package com.mark.utils;
 
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 /**
  * Description:
@@ -145,5 +146,15 @@ private static final char[] CHARS = new char[] {'M', 'w', 'W', 'J', 's', 'c', 'B
                 String s = gen(1951364703847811L);
                 System.out.println(s + "-----" + decode(s));
            // }
+
+            System.out.println(isPhone("134221005080"));
         }
+
+    private static final Pattern PHONE_NUMBER = Pattern.compile("^1[23456789]\\d{9}$");
+
+
+
+    public static boolean isPhone(String phone) {
+        return PHONE_NUMBER.matcher(phone).matches();
+    }
 }

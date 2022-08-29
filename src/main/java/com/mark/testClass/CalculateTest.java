@@ -1,5 +1,8 @@
 package com.mark.testClass;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * @Author: 胡东辉
  * @Description:
@@ -15,6 +18,8 @@ public class CalculateTest {
         int index=(int)(Math.random()*arr.length);
         int rand = arr[index];
         System.out.println("随机出的数组中的数："+rand);
+        boolean test = isContainsChinese("中国");
+        System.out.println(test);
 
     }
 
@@ -40,4 +45,19 @@ public class CalculateTest {
 
         }
     }
+    /**
+     * 判断字符串中是否包含中文
+     *
+     * @param str 待校验字符串
+     * @return 是否为中文
+     * @warn 不能校验是否为中文标点符号
+     */
+    public static boolean isContainsChinese(String str) {
+        if (str == null) { return false; }
+        Pattern p = Pattern.compile("[\u4e00-\u9fa5]");
+        Matcher m = p.matcher(str);
+        return m.find();
+    }
+
+
 }
