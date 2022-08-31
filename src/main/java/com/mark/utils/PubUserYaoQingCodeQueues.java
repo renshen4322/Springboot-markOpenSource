@@ -1,5 +1,6 @@
 package com.mark.utils;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 
 /**
@@ -154,11 +155,61 @@ public class PubUserYaoQingCodeQueues
             Long lUserid = DecodeUserYaoQingCode(strYaoQingCode);
 
             System.out.println("生成用户ID为:" + lUserid);
+
+            String userId = CreateUserIdPrefix();
+            System.out.println("userid====="+userId);
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
 
+    }
+
+    /**
+     * 用于生成用户ID的前缀
+     * ID格式为10位  前两位 年 + 三位 年的第几天 + 五位随机数
+     * @return
+     */
+    public static String CreateUserIdPrefix() throws NormalException
+    {
+        StringBuffer strUserId = new StringBuffer();
+
+        try
+        {
+            LocalDateTime nowDate = LocalDateTime.now();
+
+            //获取两位年份
+            int nowYear = nowDate.getYear();
+
+            nowYear = nowYear - 2010;
+
+            strUserId.append(nowYear);
+
+            //获取当年第几天
+            int nowDays = nowDate.getDayOfYear();
+
+            if(nowDays >= 0 && nowDays <= 9)
+            {
+                strUserId.append("0");
+                strUserId.append("0");
+                strUserId.append(nowDays);
+            }
+            else if(nowDays >= 10 && nowDays <= 99)
+            {
+                strUserId.append("0");
+                strUserId.append(nowDays);
+            }
+            else
+            {
+                strUserId.append(nowDays);
+            }
+
+            return strUserId.toString();
+        }
+        catch (Exception e)
+        {
+            throw new NormalException(e);
+        }
     }
 }
