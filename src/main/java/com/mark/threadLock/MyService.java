@@ -28,16 +28,16 @@ public class MyService {
     public void get() {
         try {
             lock.lock();
-            while (hasValue==false){
+            while (hasValue == false) {
                 System.out.println("有可能**连续");
                 condition.await();
             }
             System.out.println("打印*");
-            hasValue=false;
+            hasValue = false;
             condition.signal();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             lock.unlock();
         }
 
