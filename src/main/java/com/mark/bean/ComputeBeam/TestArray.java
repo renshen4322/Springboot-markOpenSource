@@ -9,11 +9,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class TestArray {
 
     public static void main(String[] args) {
-        //getResult(10);
+        getResult(10);
 
 
-        String str = null;
-        System.out.println(str.length());
+        //String str = null;
+       // System.out.println(str.length());
 
        // extracted();
     }
