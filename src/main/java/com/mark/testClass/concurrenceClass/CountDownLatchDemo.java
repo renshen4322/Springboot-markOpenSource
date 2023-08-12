@@ -9,7 +9,7 @@ import java.util.concurrent.CountDownLatch;
  * Description:
  *
  * @Date:2019/4/9 0009 16:08
- * @Author: mark
+ * @Author: mark CountDownLatchDemo
  */
 public class CountDownLatchDemo {
     public static void main(String[] args) throws InterruptedException {

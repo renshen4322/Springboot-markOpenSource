@@ -13,7 +13,8 @@ import java.util.concurrent.Executors;
  * @Date:2021/6/14 0014 17:02
  * @Author: mark
  */
-public class ExchangerTest {
+public class
+ExchangerTest {
     private  static final Exchanger<String> exgr = new Exchanger<String>();
     private static ExecutorService theadPool = Executors.newFixedThreadPool(2);
 
