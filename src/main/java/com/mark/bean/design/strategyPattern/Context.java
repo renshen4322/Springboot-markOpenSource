@@ -10,13 +10,14 @@ package com.mark.bean.design.strategyPattern;
  */
 public class Context {  //定义上下文环境
     Strategy strategy;   //聚合Strategy对象
-    public void setStrategy(Strategy strategy){
+
+    public void setStrategy(Strategy strategy) {
         this.strategy = strategy;
     }
 
-    public void contextInterface(){   //定义上下文接口的方法
+    public void contextInterface() {   //定义上下文接口的方法
+
         strategy.algorithmlnterface(); //调用策略算法接口
     }
-
 
 }
