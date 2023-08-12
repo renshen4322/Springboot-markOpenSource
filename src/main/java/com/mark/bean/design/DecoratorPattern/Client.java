@@ -14,7 +14,9 @@ public class Client {
         Decorator concreteDecoratorA = new ConcreteDecoratorA(concreteComponent); //装饰
         System.out.println("大二："+concreteDecoratorA.operation());
         System.out.println("===================================");
+
         Decorator concreteDecoratorB = new ConcreteDecoratorB(concreteDecoratorA); //再装饰
         System.out.println("大三："+concreteDecoratorB.operation());
+        System.out.println("===================================");
     }
 }
