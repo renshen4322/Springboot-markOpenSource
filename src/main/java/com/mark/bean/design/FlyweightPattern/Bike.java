@@ -1,7 +1,7 @@
 package com.mark.bean.design.FlyweightPattern;
 
 /**
- * 抽象享无角色
+ * 抽象享元角色
  */
 public abstract class Bike {
 
